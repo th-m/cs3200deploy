@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>smello</title>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <canvas id='canv'></canvas>
+    <header>Alchemy Games Inc</header>
+    <div class="startMenu">
+      <div class="aligner form_bottuns">
+        <h1 class="logged_in" data-show="players">Join <br> Game</h1>
+        <h1 class="logged_in" data-show="games">Create <br> Game</h1>
+        <h1 class="logged_out" data-show="users">Create <br> User</h1>
+        <h1 class="logged_out" data-show="sessions">Login</h1>
+      </div>
+      <div class="aligner">
+        <form id="players" data-callback="play_game">
+          <input type="text" name="player_name" value="" placeholder="type your name" required><br>
+          <input type="number" name="game_id" value="" placeholder="type game code" required><br>
+          <input class="btn" type="submit" value="submit">
+        </form>
+      </div>
+      <div class="aligner">
+        <form id="games" data-callback="play_game">
+          <input type="text" name="player_name" value="" placeholder="type your name" required><br>
+          <input class="btn" type="submit" value="Create Game">
+        </form> 
+      </div>
+      <div class="aligner">
+        <form id="users" data-callback="play_game">
+          <input type="email" name="email" value="" placeholder="Whats your email?" required><br>
+          <input type="password" name="password" value="" placeholder="Type a super secret password" required><br>
+          <input type="text" name="first_name" value="" placeholder="What should I call you" required><br>
+          <input type="text" name="last_name" value="" placeholder="What is your extended name" required><br>
+          <input type="text" name="age" value="" placeholder="How old are you?" required><br>
+          <input class="btn" type="submit" value="Create User">
+        </form> 
+      </div>
+      <div class="aligner">
+        <form id="sessions" data-callback="play_game">
+          <input type="email" name="email" value="" placeholder="What is your email" required><br>
+          <input type="password" name="password" value="" placeholder="type password" required><br>
+          <input class="btn" type="submit" value="Create User">
+        </form> 
+      </div>
+      <div class="games_list" style="display:none;"></div>
+    </div>
+    <div class="inGame" style="display:none;">
+      <h1 class="character_title"></h1>
+      <h3 class="character_data"></h3>
+      <button id="startGame" class="red pulse" type="buton" name="button"><span>Start Game</span></button>
+      <!-- <div class="container">
+      </div> -->
+      <!-- <div class="container">
+        <div class="bg"></div>
+        <div id="startGame" class="button">test</button>
+      </div> -->
+      <!-- <div class='container'>
+        <span id="startGame" class='pulse-button'>Start Game</span>
+      </div> -->
+      <div class="footbar">
+        <h1>Players in Game</h1>
+        <div class="players_list">
+        </div>
+      </div>        
+    </div>
+  </body>
+</html>
+<script src="js/design.js" charset="utf-8"></script>
+<script src="js/app.js" charset="utf-8"></script>
