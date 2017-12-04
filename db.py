@@ -54,8 +54,19 @@ class DB:
         self.connection.commit()
     
     def createPlayersTable(self):
-        self.cursor.execute("DROP TABLE players;")
         self.cursor.execute("CREATE TABLE IF NOT EXISTS players (id SERIAL PRIMARY KEY, game_id SERIAL, game_title VARCHAR(255), character_title VARCHAR(255), character_data TEXT, player_number SERIAL, player_name VARCHAR(255), is_active SERIAL)")
+        self.connection.commit()
+        sql = '''
+                INSERT INTO players
+                (game_id, game_title, character_title, character_data ,player_number, player_name, is_active)
+                values (%s,%s,%s,%s,%s,%s,%s)
+              '''
+        attributes = (
+            1, 'fake', 'foo', 
+            'fake data', '000', 'test rat',
+            '0'
+        )
+        self.cursor.execute(sql, attributes)
         self.connection.commit()
         
     def createUser(self, data):
