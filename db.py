@@ -62,7 +62,7 @@ class DB:
         sql = '''
                 INSERT INTO users
                 (email, encr_pass, first_name, last_name ,age)
-                values (?,?,?,?,?)
+                values (%s,%s,%s,%s,%s)
               '''
         attributes = (
             data['email'], data['encr_pass'], data['first_name'], 
@@ -77,7 +77,7 @@ class DB:
         sql = '''
                 INSERT INTO players
                 (game_id, game_title, character_title, character_data ,player_number, player_name, is_active)
-                values (?,?,?,?,?,?,?)
+                values (%s,%s,%s,%s,%s,%s,%s)
               '''
         attributes = (
             data['game_id'], data['game_title'], data['character_title'], 
@@ -91,7 +91,7 @@ class DB:
     
     # def sqlHelper(self,table):
     #     sql = '''
-    #             SELECT * FROM ? LIMIT 1;
+    #             SELECT * FROM %s LIMIT 1;
     #           '''
     #     attributes = (table)
     #     self.cursor.execute(sql, attributes)
@@ -101,14 +101,14 @@ class DB:
     # def setHelper(self,data):
     #     sqlString = ""
     #     for k, v in data.items():
-    #         sqlString += k + " = ?, "
-    #      sqlString = sqlString[:-1] + "WHERE id = ?;"
+    #         sqlString += k + " = %s, "
+    #      sqlString = sqlString[:-1] + "WHERE id = %s;"
     
     def createSession(self, id, uid):
         sql = '''
         INSERT INTO sessions
             (id, user_id)
-            values (?,?)
+            values (%s,%s)
         '''
         # s = SessionStore()
         # rnum = os.urandom(32)
@@ -134,8 +134,8 @@ class DB:
     def update(self, data):
         sql = '''
                 UPDATE players
-                SET game_id = ?, game_title = ?, character_title = ?, character_data = ?, player_number = ?, player_name = ?, is_active =?
-                WHERE id = ?;
+                SET game_id = %s, game_title = %s, character_title = %s, character_data = %s, player_number = %s, player_name = %s, is_active =%s
+                WHERE id = %s;
               '''
         # print(sql)
         attributes = (
