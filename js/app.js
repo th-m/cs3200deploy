@@ -1,4 +1,4 @@
-let baseURL = 'http://localhost:6060/';
+let baseURL = 'https://tvcs3200.herokuapp.com/';
 // let inGame = false;
 let form = document.querySelectorAll('form');
 let formBtns = document.querySelectorAll('.form_bottuns h1');

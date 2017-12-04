@@ -42,7 +42,7 @@ class DB:
     # CREATE TABLE players (id integer primary key, game_id integer, game_title varchar(20), character_title varchar(20), character_data text, player_number integer, player_name varchar(20));
 
     def createSessionsTable(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS session (id TEXT, user_id SERIAL)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS sessions (id TEXT, user_id SERIAL)")
         self.connection.commit()
         
     def createGamesTable(self):
